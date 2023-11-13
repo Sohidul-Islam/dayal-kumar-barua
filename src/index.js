@@ -1,31 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
 import "./assets/css/materialdesignicons.min.css";
 import "./assets/scss/themes.scss";
+import "react-slideshow-image/dist/styles.css";
 
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from "./reportWebVitals";
 
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Marketing from './pages/marketing';
-import Agency from './pages/agency';
-import Portfolio from './pages/portfolio';
-import Maintenance from './pages/maintenance';
-import Error from './pages/error';
-import Login from './pages/auth/login';
-import Signup from './pages/auth/signup';
-import ResetPassword from './pages/auth/reset-password';
-import Comingsoon from './pages/comingsoon';
-import Personal from './pages/personal';
-import Saas from './pages/saas';
-import Startup from './pages/startup';
+import Marketing from "./pages/marketing";
+import Agency from "./pages/agency";
+import Portfolio from "./pages/portfolio";
+import Maintenance from "./pages/maintenance";
+import Error from "./pages/error";
+import Login from "./pages/auth/login";
+import Signup from "./pages/auth/signup";
+import ResetPassword from "./pages/auth/reset-password";
+import Comingsoon from "./pages/comingsoon";
+import Personal from "./pages/personal";
+import Saas from "./pages/saas";
+import Startup from "./pages/startup";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <BrowserRouter>
@@ -45,9 +42,9 @@ root.render(
       <Route path="/error" element={<Error />} />
       <Route path="/auth-login" element={<Login />} />
       <Route path="/auth-signup" element={<Signup />} />
-      
+
       <Route path="/comingsoon" element={<Comingsoon />} />
-      
+
       <Route path="/auth-reset-password" element={<ResetPassword />} />
     </Routes>
   </BrowserRouter>

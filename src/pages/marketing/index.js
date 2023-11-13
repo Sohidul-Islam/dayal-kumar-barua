@@ -9,57 +9,140 @@ import News from "../../component/News";
 import Contact from "../../component/Contact";
 import Footer from "../../component/Footer";
 
-import BackgroundImage from '../../assets/images/bg/marketing-shape.png';
-import CelebrationImage from '../../assets/images/svg/celebration.svg';
-import AmazonImage from '../../assets/images/client/amazon.svg';
-import GoogleImage from '../../assets/images/client/google.svg';
-import LenovoImage from '../../assets/images/client/lenovo.svg';
-import PaypalImage from '../../assets/images/client/paypal.svg';
-import ShopifyImage from '../../assets/images/client/shopify.svg';
-import SpotifyImage from '../../assets/images/client/spotify.svg';
+import image1 from "../../assets/images/images/1692718795704.jpg";
+import image2 from "../../assets/images/images/Dayal_kumar_Barua-removebg-preview (1).png";
+import image3 from "../../assets/images/images/WhatsApp Image 2023-06-12 at 14.16.17 (1).jpeg";
+import image4 from "../../assets/images/images/dayal Kumar.jpg";
+import image5 from "../../assets/images/images/WhatsApp Image 2023-06-12 at 14.16.23.jpeg";
+// import TinySlider from "tiny-slider-react";
+import { Slide } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
+
+const divStyle = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundSize: "cover",
+  // height: "400px",
+};
+
+// const settings = {
+//   controls: true,
+//   mouseDrag: true,
+//   loop: true,
+//   rewind: true,
+//   autoplay: true,
+//   autoplayButtonOutput: false,
+//   autoplayTimeout: 3000,
+//   navPosition: "bottom",
+//   speed: 400,
+//   responsive: {
+//     992: {
+//       items: 1,
+//     },
+
+//     767: {
+//       items: 1,
+//     },
+
+//     320: {
+//       items: 1,
+//     },
+//   },
+// };
 
 /**
  * Marketing component
  */
+
 export default function Marketing() {
-    return (
-        <>
-            <div>
-                <Navbar />
+  const carouselData = [
+    {
+      id: "1",
+      profile: image1,
+      title: "Calvin Carlo",
+      designation: "Manager",
+      description:
+        "According to most sources, Lorum Ipsum can be traced back to a text composed by Cicero Launch your campaign and benefit from our expertise.",
+    },
+    {
+      id: "2",
+      profile: image2,
+      title: "Christa Smith",
+      designation: "Manager",
+      description:
+        "According to most sources, Lorum Ipsum can be traced back to a text composed by Cicero Launch your campaign and benefit from our expertise.",
+    },
+    {
+      id: "3",
+      profile: image3,
+      title: "Jemina CLone",
+      designation: "Manager",
+      description:
+        "According to most sources, Lorum Ipsum can be traced back to a text composed by Cicero Launch your campaign and benefit from our expertise.",
+    },
+    {
+      id: "4",
+      profile: image4,
+      title: "Smith Vodka",
+      designation: "Manager",
+      description:
+        "According to most sources, Lorum Ipsum can be traced back to a text composed by Cicero Launch your campaign and benefit from our expertise.",
+    },
+    {
+      id: "5",
+      profile: image5,
+      title: "Cristino Murfi",
+      designation: "Manager",
+      description:
+        "According to most sources, Lorum Ipsum can be traced back to a text composed by Cicero Launch your campaign and benefit from our expertise.",
+    },
+  ];
 
-                <section className="bg-home bg-soft-primary d-flex align-items-center" style={{ background: `url(${BackgroundImage}) center center`, height: "auto" }} id="home">
-                    <Container>
-                        <Row className="mt-5 pt-5 justify-content-center">
-                            <div className="col-lg-12 text-center mt-0 mt-md-5 pt-0 pt-md-5">
-                                <div className="title-heading">
-                                    <h4 className="heading my-3">Solve Problem With on Integrated <br /> Marketing Agency</h4>
-                                    <p className="para-desc mx-auto text-muted">Explore and learn more about everything from machine learning and global payments to  scaling your team.</p>
-                                </div>
+  return (
+    <>
+      <div>
+        <Navbar />
 
-                                <div className="text-center subcribe-form mt-4 pt-2">
-                                    <form>
-                                        <input type="url" id="url" className="border bg-white rounded-lg" style={{ opacity: "0.85" }} required placeholder="https://shreethemes.in" />
-                                        <button type="submit" className="btn btn-pills btn-primary">Get Started</button>
-                                    </form>
-                                </div>
-
-                                <Row className="justify-content-center">
-                                    <Col lg={7} md={10}>
-                                        <div className="home-dashboard">
-                                            <img src={CelebrationImage} alt="" className="img-fluid" />
-                                        </div>
-                                    </Col>
-                                </Row>
-                            </div>
-                        </Row>
-                    </Container>
-                </section>
-                <div className="position-relative">
-                    <div className="shape marketing-hero overflow-hidden text-light"></div>
+        {/* <div>
+          <TinySlider settings={settings} className="tiny-slide">
+            {carouselData.map((el, index) => (
+              <div className="header-carousel-container m-1" key={index}>
+                <div className="header-carousel-img--container">
+                  <img src={el.profile} className=" shadow" alt="" />
                 </div>
+              </div>
+            ))}
+          </TinySlider>
+        </div> */}
 
-                {/* Partners start */}
-                <section className="mt-5 pt-md-5">
+        <Slide
+        // prevArrow={<button className="btn btn-outline-primary">Prev</button>}
+        // nextArrow={<button className="btn btn-outline-primary">Next</button>}
+        >
+          {carouselData.map((slideImage, index) => (
+            <div
+              key={index}
+              style={{
+                ...divStyle,
+                backgroundImage: `url(${slideImage.profile})`,
+              }}
+            >
+              <div
+                className="header-carousel-container m-1"
+                key={index}
+                // style={{ backgroundImage: `url(${slideImage?.profile})` }}
+              >
+                <div className="header-carousel-img--container">
+                  <img src={slideImage.profile} className=" shadow" alt="" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slide>
+
+        {/* Partners start */}
+        {/* <section className="mt-5 pt-md-5">
                     <Container>
                         <Row className="row justify-content-center">
                             <Col lg={2} md={2} className="col-6 text-center py-4 py-sm-0">
@@ -87,16 +170,15 @@ export default function Marketing() {
                             </Col>
                         </Row>
                     </Container>
-                </section>
+                </section> */}
 
-                <Feature />
-                <Pricing />
-                <Review />
-                <News />
-                <Contact />
-                <Footer />
-
-            </div>
-        </>
-    )
+        <Feature />
+        <Pricing />
+        <Review />
+        <News />
+        <Contact />
+        <Footer />
+      </div>
+    </>
+  );
 }
