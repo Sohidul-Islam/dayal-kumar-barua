@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useRef, useState } from "react";
 import { Col, Container, Row } from "reactstrap";
 
 import Navbar from "../../component/Navbar";
@@ -10,52 +10,25 @@ import Contact from "../../component/Contact";
 import Footer from "../../component/Footer";
 
 import image1 from "../../assets/images/images/1692718795704.jpg";
-import image2 from "../../assets/images/images/Dayal_kumar_Barua-removebg-preview (1).png";
-import image3 from "../../assets/images/images/WhatsApp Image 2023-06-12 at 14.16.17 (1).jpeg";
-import image4 from "../../assets/images/images/dayal Kumar.jpg";
-import image5 from "../../assets/images/images/WhatsApp Image 2023-06-12 at 14.16.23.jpeg";
+import image2 from "../../assets/images/images/image_1.jpg";
+import image3 from "../../assets/images/images/image_2.jpg";
+import image4 from "../../assets/images/images/image_3.jpg";
+import image5 from "../../assets/images/images/image_4.jpg";
 // import TinySlider from "tiny-slider-react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-
-const divStyle = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  backgroundSize: "cover",
-  // height: "400px",
-};
-
-// const settings = {
-//   controls: true,
-//   mouseDrag: true,
-//   loop: true,
-//   rewind: true,
-//   autoplay: true,
-//   autoplayButtonOutput: false,
-//   autoplayTimeout: 3000,
-//   navPosition: "bottom",
-//   speed: 400,
-//   responsive: {
-//     992: {
-//       items: 1,
-//     },
-
-//     767: {
-//       items: 1,
-//     },
-
-//     320: {
-//       items: 1,
-//     },
-//   },
-// };
+import SliderCard from "./SliderCard";
+import PersonalDescriptionCard from "../personal/PersonalDescriptionCard";
+import PersonalInformation from "../personal";
 
 /**
  * Marketing component
  */
 
 export default function Marketing() {
+  const sliderRef = useRef();
+  const [activeIndex, setActiveIndex] = useState(0);
+
   const carouselData = [
     {
       id: "1",
@@ -101,82 +74,32 @@ export default function Marketing() {
 
   return (
     <>
-      <div>
+      <div style={{ marginTop: "70px" }}>
         <Navbar />
 
-        {/* <div>
-          <TinySlider settings={settings} className="tiny-slide">
-            {carouselData.map((el, index) => (
-              <div className="header-carousel-container m-1" key={index}>
-                <div className="header-carousel-img--container">
-                  <img src={el.profile} className=" shadow" alt="" />
-                </div>
-              </div>
-            ))}
-          </TinySlider>
-        </div> */}
-
         <Slide
-        // prevArrow={<button className="btn btn-outline-primary">Prev</button>}
-        // nextArrow={<button className="btn btn-outline-primary">Next</button>}
+          ref={sliderRef}
+          onChange={(from, to) => {
+            setActiveIndex(to);
+          }}
         >
           {carouselData.map((slideImage, index) => (
-            <div
+            <SliderCard
+              sliderRef={sliderRef}
               key={index}
-              style={{
-                ...divStyle,
-                backgroundImage: `url(${slideImage.profile})`,
-              }}
-            >
-              <div
-                className="header-carousel-container m-1"
-                key={index}
-                // style={{ backgroundImage: `url(${slideImage?.profile})` }}
-              >
-                <div className="header-carousel-img--container">
-                  <img src={slideImage.profile} className=" shadow" alt="" />
-                </div>
-              </div>
-            </div>
+              slideData={slideImage}
+              isActive={index === activeIndex}
+            />
           ))}
         </Slide>
 
-        {/* Partners start */}
-        {/* <section className="mt-5 pt-md-5">
-                    <Container>
-                        <Row className="row justify-content-center">
-                            <Col lg={2} md={2} className="col-6 text-center py-4 py-sm-0">
-                                <img src={AmazonImage} className="avatar avatar-ex-sm" alt="" />
-                            </Col>
+        <PersonalInformation />
 
-                            <Col lg={2} md={2} className="col-6 text-center py-4 py-sm-0">
-                                <img src={GoogleImage} className="avatar avatar-ex-sm" alt="" />
-                            </Col>
-
-                            <Col lg={2} md={2} className="col-6 text-center py-4 py-sm-0">
-                                <img src={LenovoImage} className="avatar avatar-ex-sm" alt="" />
-                            </Col>
-
-                            <Col lg={2} md={2} className="col-6 text-center py-4 py-sm-0">
-                                <img src={PaypalImage} className="avatar avatar-ex-sm" alt="" />
-                            </Col>
-
-                            <Col lg={2} md={2} className="col-6 text-center py-4 py-sm-0">
-                                <img src={ShopifyImage} className="avatar avatar-ex-sm" alt="" />
-                            </Col>
-
-                            <Col lg={2} md={2} className="col-6 text-center py-4 py-sm-0">
-                                <img src={SpotifyImage} className="avatar avatar-ex-sm" alt="" />
-                            </Col>
-                        </Row>
-                    </Container>
-                </section> */}
-
-        <Feature />
+        {/* <Feature />
         <Pricing />
         <Review />
         <News />
-        <Contact />
+        <Contact /> */}
         <Footer />
       </div>
     </>
