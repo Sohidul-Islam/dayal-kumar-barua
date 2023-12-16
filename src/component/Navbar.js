@@ -32,8 +32,8 @@ export default function NavbarPage() {
       <nav id="navbar" className="navbar navbar-expand-lg fixed-top sticky">
         <div className="container">
           <NavbarBrand className="navbar-brand" to="/">
-            <img src={logodark} className="logo-light-mode" alt="" />
-            <img src={logolight} className="logo-dark-mode" alt="" />
+            <img src={logodark} className="logo-light-mode logo" alt="" />
+            <img src={logolight} className="logo-dark-mode logo" alt="" />
           </NavbarBrand>
           <NavbarToggler className="navbar-toggler" onClick={toggleMenu}>
             <Icon.Menu />

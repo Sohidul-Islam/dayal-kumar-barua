@@ -151,7 +151,7 @@ export default function Footer() {
                   <p className="mb-0 text-foot">
                     © {new Date().getFullYear()}{" "}
                     <Link to="#" className="text-reset">
-                      Shreethemes
+                      Sohidul Islam
                     </Link>
                     .
                   </p>
