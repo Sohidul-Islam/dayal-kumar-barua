@@ -1,0 +1,6 @@
+{
+  "prettier.trailingComma": "all",
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnSave": true,
+  "autoimport.filesToScan": "**/*.{ts,tsx,js}"
+}

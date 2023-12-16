@@ -1,19 +1,17 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import styled from "styled-components";
 
-import { Stack } from "../../component/Shared/Common";
 import { Container } from "reactstrap";
-
-const StyledInnerContainer = styled.div({
-  width: "50%",
-});
+import { Grid, Stack } from "@mui/material";
+import { motion, easeIn } from "framer-motion";
 
 const StyledTitleBox = styled.div({
   width: "100%",
-  padding: "0px 10px",
+  height: "100%",
   display: "flex",
-  justifyContent: "center",
-  alignItems: "flex-start",
+  alignContent: "center",
+  alignItems: "center",
 });
 
 const StyledTitle = styled.p((props) => ({
@@ -41,14 +39,18 @@ function PersonalDescriptionCard({
   subtitle,
   description,
   image = "",
+  idName,
 }) {
   return (
-    <Container>
+    <Container id={idName}>
       {!right ? (
-        <Stack sx={{ margin: "80px 0px" }} alignItems="center" gap={6}>
-          {/* left */}
-          {image && (
-            <StyledInnerContainer>
+        <Grid container spacing={{ xs: 2, md: 3 }} columns={12}>
+          <Grid item xs={12} sm={12} md={6} lg={6}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeIn" }}
+            >
               <img
                 src={image}
                 alt={"image_text"}
@@ -60,28 +62,34 @@ function PersonalDescriptionCard({
                   objectFit: "cover",
                 }}
               />
-            </StyledInnerContainer>
-          )}
-
-          {/* Right */}
-          <StyledInnerContainer>
+            </motion.div>
+          </Grid>
+          <Grid item xs={12} sm={12} md={6} lg={6}>
             <StyledTitleBox>
-              <Stack direction="column" gap={2.5}>
+              <Stack
+                direction="column"
+                sx={{
+                  gap: { xs: 1, md: 1.5, lg: 2.5 },
+                  justifyContent: "space-around",
+                }}
+              >
                 {title && (
-                  <StyledTitle
-                    sx={{
-                      fontSize: "1.6rem",
-                      paddingBottom: "2px",
-                      borderBottom: "2px solid rgba(0,0,0,0.0)",
-                      cursor: "default",
-                      transition: "all 0.5s ease-in-out",
-                      "&:hover": {
-                        borderBottom: "2px solid rgba(0,0,0,1.0)",
-                      },
-                    }}
+                  <motion.div
+                    whileHover={{ scale: 1.1, x: 10 }}
+                    whileTap={{ scale: 0.9 }}
                   >
-                    {title}
-                  </StyledTitle>
+                    <StyledTitle
+                      sx={{
+                        fontSize: "1.6rem",
+                        paddingBottom: "2px",
+                        borderBottom: "2px solid rgba(0,0,0,0.0)",
+                        cursor: "default",
+                        transition: "all 0.5s ease-in-out",
+                      }}
+                    >
+                      {title}
+                    </StyledTitle>
+                  </motion.div>
                 )}
 
                 <Stack direction="column">
@@ -115,29 +123,35 @@ function PersonalDescriptionCard({
                 </Stack>
               </Stack>
             </StyledTitleBox>
-          </StyledInnerContainer>
-        </Stack>
+          </Grid>
+        </Grid>
       ) : (
-        <Stack sx={{ margin: "80px 0px" }} alignItems="center" gap={6}>
-          {/* left */}
-          <StyledInnerContainer>
+        <Grid container spacing={{ xs: 2, md: 3 }} columns={12}>
+          <Grid item xs={12} sm={12} md={6} lg={6}>
             <StyledTitleBox>
-              <Stack direction="column" gap={2.5}>
+              <Stack
+                direction="column"
+                sx={{
+                  gap: { xs: 1, md: 1.5, lg: 2.5 },
+                }}
+              >
                 {title && (
-                  <StyledTitle
-                    sx={{
-                      fontSize: "1.6rem",
-                      paddingBottom: "2px",
-                      borderBottom: "2px solid rgba(0,0,0,0.0)",
-                      cursor: "default",
-                      transition: "all 0.5s ease-in-out",
-                      "&:hover": {
-                        borderBottom: "2px solid rgba(0,0,0,1.0)",
-                      },
-                    }}
+                  <motion.div
+                    whileHover={{ scale: 1.1, x: 10 }}
+                    whileTap={{ scale: 0.9 }}
                   >
-                    {title}
-                  </StyledTitle>
+                    <StyledTitle
+                      sx={{
+                        fontSize: "1.6rem",
+                        paddingBottom: "2px",
+                        borderBottom: "2px solid rgba(0,0,0,0.0)",
+                        cursor: "default",
+                        transition: "all 0.5s ease-in-out",
+                      }}
+                    >
+                      {title}
+                    </StyledTitle>
+                  </motion.div>
                 )}
 
                 <Stack direction="column">
@@ -171,10 +185,13 @@ function PersonalDescriptionCard({
                 </Stack>
               </Stack>
             </StyledTitleBox>
-          </StyledInnerContainer>
-          {/* right */}
-          {image && (
-            <StyledInnerContainer>
+          </Grid>
+          <Grid item xs={12} sm={12} md={6} lg={6}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeIn" }}
+            >
               <img
                 src={image}
                 alt={"image_text"}
@@ -186,9 +203,9 @@ function PersonalDescriptionCard({
                   objectFit: "cover",
                 }}
               />
-            </StyledInnerContainer>
-          )}
-        </Stack>
+            </motion.div>
+          </Grid>
+        </Grid>
       )}
     </Container>
   );

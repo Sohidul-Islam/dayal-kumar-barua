@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { Component, useRef, useState } from "react";
 import { Col, Container, Row } from "reactstrap";
 
@@ -20,6 +21,8 @@ import "react-slideshow-image/dist/styles.css";
 import SliderCard from "./SliderCard";
 import PersonalDescriptionCard from "../personal/PersonalDescriptionCard";
 import PersonalInformation from "../personal";
+import Events from "../event";
+import { Box, Tabs } from "@mui/material";
 
 /**
  * Marketing component
@@ -77,23 +80,27 @@ export default function Marketing() {
       <div style={{ marginTop: "70px" }}>
         <Navbar />
 
-        <Slide
-          ref={sliderRef}
-          onChange={(from, to) => {
-            setActiveIndex(to);
-          }}
-        >
-          {carouselData.map((slideImage, index) => (
-            <SliderCard
-              sliderRef={sliderRef}
-              key={index}
-              slideData={slideImage}
-              isActive={index === activeIndex}
-            />
-          ))}
-        </Slide>
+        <Box id="home">
+          <Slide
+            ref={sliderRef}
+            onChange={(from, to) => {
+              setActiveIndex(to);
+            }}
+          >
+            {carouselData.map((slideImage, index) => (
+              <SliderCard
+                sliderRef={sliderRef}
+                key={index}
+                slideData={slideImage}
+                isActive={index === activeIndex}
+              />
+            ))}
+          </Slide>
+        </Box>
 
         <PersonalInformation />
+
+        <Events />
 
         {/* <Feature />
         <Pricing />
