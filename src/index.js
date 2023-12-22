@@ -9,45 +9,25 @@ import reportWebVitals from "./reportWebVitals";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Marketing from "./pages/marketing";
-import Agency from "./pages/agency";
-import Portfolio from "./pages/portfolio";
-import Maintenance from "./pages/maintenance";
-import Error from "./pages/error";
-import Login from "./pages/auth/login";
-import Signup from "./pages/auth/signup";
-import ResetPassword from "./pages/auth/reset-password";
-import Comingsoon from "./pages/comingsoon";
-import Personal from "./pages/personal";
-import Saas from "./pages/saas";
-import Startup from "./pages/startup";
+import Home from "./pages/marketing";
+
+import NavbarPage from "./component/Navbar";
+import AboutPage from "./pages/About";
+import EventPage from "./pages/EventPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <BrowserRouter>
     {/* <App /> */}
+    <NavbarPage />
     <Routes>
-      <Route path="/" element={<Marketing />} />
-      <Route path="/marketing" element={<Marketing />} />
-
-      <Route path="/agency" element={<Agency />} />
-      <Route path="/portfolio" element={<Portfolio />} />
-      <Route path="/personal" element={<Personal />} />
-      <Route path="/startup" element={<Startup />} />
-
-      <Route path="/saas" element={<Saas />} />
-
-      <Route path="/maintenance" element={<Maintenance />} />
-      <Route path="/error" element={<Error />} />
-      <Route path="/auth-login" element={<Login />} />
-      <Route path="/auth-signup" element={<Signup />} />
-
-      <Route path="/comingsoon" element={<Comingsoon />} />
-
-      <Route path="/auth-reset-password" element={<ResetPassword />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/events" element={<EventPage />} />
+      <Route path="/gallery" element={<AboutPage />} />
     </Routes>
-  </BrowserRouter>
+  </BrowserRouter>,
 );
 
 // If you want to start measuring performance in your app, pass a function

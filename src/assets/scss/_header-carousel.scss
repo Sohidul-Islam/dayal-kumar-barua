@@ -1,6 +1,6 @@
 .header-carousel-container {
   width: 100vw;
-  height: min(920px, calc(100vh - 70px));
+  height: min(750px, calc(75vh - 70px));
   position: relative;
 
   top: 0;
@@ -37,4 +37,18 @@
       height: min(920px, calc(60vh - 70px));
     }
   }
+}
+
+
+.indicator {
+  cursor: pointer;
+  padding: 8px;
+  text-align: center;
+  border: 1px #8cb369 solid;
+  margin: 4px;
+  border-radius: 50%;
+}
+
+.indicator.active {
+  background: #8cb369;
 }

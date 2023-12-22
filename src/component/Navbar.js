@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-scroll";
-import { Link as Link2 } from "react-router-dom";
+import { Link as Link2, useLocation } from "react-router-dom";
 
 import * as Icon from "react-feather";
 import { NavbarBrand, NavbarToggler, NavItem, Nav, Collapse } from "reactstrap";
@@ -10,6 +10,8 @@ import logolight from "../assets/images/logo-light.png";
 
 export default function NavbarPage() {
   const [isOpen, setMenu] = useState(true);
+
+  const location = useLocation();
 
   window.addEventListener("scroll", windowScroll);
 
@@ -48,32 +50,31 @@ export default function NavbarPage() {
               id="navbar-navlist"
             >
               <NavItem>
-                <Link
+                <Link2
                   activeClass="active"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  to="home"
-                  className="nav-link"
-                  href="#"
+                  className={
+                    location?.pathname === "/" ? "nav-link active" : "nav-link"
+                  }
+                  to="/"
                 >
                   Home
-                </Link>
+                </Link2>
               </NavItem>
               <NavItem>
-                <Link
+                <Link2
                   activeClass="active"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  to="about"
-                  className="nav-link"
-                  href="#"
+                  // to="about"
+                  className={
+                    location?.pathname === "/about"
+                      ? "nav-link active"
+                      : "nav-link"
+                  }
+                  to="/about"
                 >
                   ABOUT
-                </Link>
+                </Link2>
               </NavItem>
-              <NavItem>
+              {/* <NavItem>
                 <Link
                   activeClass="active"
                   spy={true}
@@ -98,19 +99,22 @@ export default function NavbarPage() {
                 >
                   EDUCATION
                 </Link>
-              </NavItem>
+              </NavItem> */}
               <NavItem>
-                <Link
+                <Link2
                   activeClass="active"
                   spy={true}
                   smooth={true}
                   duration={500}
-                  to="events"
-                  className="nav-link"
-                  href="#"
+                  className={
+                    location?.pathname === "/events"
+                      ? "nav-link active"
+                      : "nav-link"
+                  }
+                  to="/events"
                 >
                   EVENTS
-                </Link>
+                </Link2>
               </NavItem>
               <NavItem>
                 <Link

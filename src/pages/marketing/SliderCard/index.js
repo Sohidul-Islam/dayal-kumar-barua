@@ -7,7 +7,7 @@ const StyledHeaderContainer = styled.div((props) => ({
   backgroundRepeat: "no-repeat",
   backgroundSize: props?.aspectRatio > 1 ? "cover" : "contain",
   "@media (max-width: 768px)": {
-    backgroundSize: "cover",
+    backgroundSize: props?.aspectRatio > 1 ? "cover" : "contain",
   },
   "@media (max-width: 480px)": {
     backgroundSize: "cover",
@@ -139,7 +139,7 @@ function SliderCard({ slideData, isActive, sliderRef }) {
   getImageDimensions(slideData?.profile, (value) => setRatio(value));
 
   return (
-    <div>
+    <div style={{ background: "#fff" }}>
       <StyledHeaderContainer
         className="header-carousel-container m-1"
         backgroundImage={slideData?.profile}

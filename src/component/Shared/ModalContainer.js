@@ -16,13 +16,13 @@ function ModalContainer({ title, onClose, children }) {
           position: "absolute",
           width: {
             xs: "min(96vw,600px)",
-            md: "min(80vw,650px)",
-            lg: "min(80vw,850px)",
+            md: "min(90vw,850px)",
+            lg: "min(90vw,950px)",
           },
           height: {
-            xs: "min(80vh,650vw)",
-            md: "min(80vh,650px)",
-            lg: "min(80vh,750px)",
+            xs: "min(90vh,750vw)",
+            md: "min(90vh,850px)",
+            lg: "min(90vh,950px)",
           },
           top: `${50}%`,
           left: `${50}%`,

@@ -7,14 +7,14 @@ import { motion } from "framer-motion";
 function EventList({ currentTab, data = [] }) {
   // const [selected, setSelected] = useState(null);
   return (
-    <Box sx={{ flexGrow: 1 }} px={2.5}>
+    <Box sx={{ flexGrow: 1 }}>
       <Grid
         container
         spacing={{ xs: 2, md: 2.5 }}
         columns={{ xs: 4, sm: 8, md: 12, lg: 12 }}
       >
         {data?.map((event, i) => (
-          <Grid item xs={4} sm={4} md={4} lg={3} key={i}>
+          <Grid item xs={4} sm={4} md={4} lg={4} key={i}>
             <motion.div
               initial={{ scale: 1 }}
               whileHover={{ scale: 1.05 }}

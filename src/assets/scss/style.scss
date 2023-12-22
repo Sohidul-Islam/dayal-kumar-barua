@@ -43,11 +43,19 @@
 @import "contact";
 @import "footer";
 @import "header-carousel";
+@import url('https://fonts.maateen.me/ekushey-lohit/font.css');
+@import url('https://fonts.maateen.me/charu-chandan-3d/font.css');
 
 
 // .fixed-top {
 //    z-index: 999;
 // }
+
+
+   body {
+      font-family: 'EkusheyLohit', Arial, sans-serif !important;
+  }
+
 
 .nav-item, .back-to-top {
    cursor: pointer;
